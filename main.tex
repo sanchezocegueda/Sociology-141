@@ -3,6 +3,9 @@
 \usepackage{amsmath}
 \usepackage{enumerate}
 \usepackage{enumitem}
+\usepackage{epigraph}
+\usepackage{lipsum}
+% \usepackage{titlepages}
 \usepackage{tikz}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 
@@ -22,8 +25,92 @@
 \newcommand{\rd}{$^{\text{rd}}$}
 \renewcommand{\th}{$^{\text{th}}$}
 
+\renewcommand\epigraphflush{flushright}
+\renewcommand\epigraphsize{\normalsize}
+\setlength\epigraphwidth{0.7\textwidth}
+
+\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+
+\DeclareFixedFont{\titlefont}{T1}{ppl}{b}{it}{0.5in}
+
+\makeatletter                       
+\def\printauthor{%                  
+    {\large \@author}}              
+\makeatother
+\author{%
+    Alejandro Sanchez Ocegueda \\
+    % Updated \today \\
+    Spring 2025 \\
+    \texttt{alexso@berkeley.edu}\vspace{20pt}
+    % Department name \\
+    }
+
+% The following code is borrowed from: https://tex.stackexchange.com/a/86310/10898
+
+\newcommand\titlepagedecoration{%
+\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+
+\coordinate (aux1) at ([yshift=-15pt]current page.north east);
+\coordinate (aux2) at ([yshift=-410pt]current page.north east);
+\coordinate (aux3) at ([xshift=-4.5cm]current page.north east);
+\coordinate (aux4) at ([yshift=-150pt]current page.north east);
+
+\begin{scope}[titlepagecolor!40,line width=12pt,rounded corners=12pt]
+\draw
+  (aux1) -- coordinate (a)
+  ++(225:5) --
+  ++(-45:5.1) coordinate (b);
+\draw[shorten <= -10pt]
+  (aux3) --
+  (a) --
+  (aux1);
+\draw[opacity=0.6,titlepagecolor,shorten <= -10pt]
+  (b) --
+  ++(225:2.2) --
+  ++(-45:2.2);
+\end{scope}
+\draw[titlepagecolor,line width=8pt,rounded corners=8pt,shorten <= -10pt]
+  (aux4) --
+  ++(225:0.8) --
+  ++(-45:0.8);
+\begin{scope}[titlepagecolor!70,line width=6pt,rounded corners=8pt]
+\draw[shorten <= -10pt]
+  (aux2) --
+  ++(225:3) coordinate[pos=0.45] (c) --
+  ++(-45:3.1);
+\draw
+  (aux2) --
+  (c) --
+  ++(135:2.5) --
+  ++(45:2.5) --
+  ++(-45:2.5) coordinate[pos=0.3] (d);   
+\draw 
+  (d) -- +(45:1);
+\end{scope}
+\end{tikzpicture}%
+}
+
 \begin{document}
-\maketitle
+\begin{titlepage}
+\noindent
+\titlefont Social Movements \par
+\epigraph{Pure mathematics is on the whole distinctly more useful than applied. For what is useful above all is technique, and mathematical technique is taught mainly through pure mathematics.}%
+{\textit{London 1941}\\ \textsc{G. H. Hardy}}
+\null\vfill
+\vspace*{1cm}
+\noindent
+\hfill
+\begin{minipage}{0.35\linewidth}
+    \begin{flushright}
+        \printauthor
+    \end{flushright}
+\end{minipage}
+%
+\begin{minipage}{0.02\linewidth}
+    \rule{1pt}{125pt}
+\end{minipage}
+\titlepagedecoration
+\end{titlepage}
 
 \tableofcontents
 
@@ -31,29 +118,29 @@
 \input{lecture/1}
 \input{lecture/2}
 
-\chapter{The Power of Disruption: The Movement of the Unemployed}
+% \chapter{The Power of Disruption: The Movement of the Unemployed}
 
 
-\newpage
-\chapter{Strategic \& Tactical Dynamics: The Civil Rights Movement}
+% \newpage
+% \chapter{Strategic \& Tactical Dynamics: The Civil Rights Movement}
 
-\chapter{Unintended Impacts: Countermovements \& Electoral Reverberations}
+% \chapter{Unintended Impacts: Countermovements \& Electoral Reverberations}
 
-\chapter{``Free Speech'': UC Berkeley from the FSM to the Palestine Solidarity Movement}
+% \chapter{``Free Speech'': UC Berkeley from the FSM to the Palestine Solidarity Movement}
 
-\chapter{``Black Power'' and its Progenies: The Black Panther Party \& the New Left}
+% \chapter{``Black Power'' and its Progenies: The Black Panther Party \& the New Left}
 
-\chapter{The Dynamics of Repression}
+% \chapter{The Dynamics of Repression}
 
-\chapter{The Stonewall Riots \& the Gay and Trans Liberation Movements}
+% \chapter{The Stonewall Riots \& the Gay and Trans Liberation Movements}
 
-\chapter{Occupy \& the ``Violence'' of Resistance}
+% \chapter{Occupy \& the ``Violence'' of Resistance}
 
-\chapter{The Dialectic of Repression \& Resistance: ``Black Power'' to ``Black Lives Matter''}
+% \chapter{The Dialectic of Repression \& Resistance: ``Black Power'' to ``Black Lives Matter''}
 
-\chapter{Indigenous Resistance: From ``Red Power'' to Standing Rock}
+% \chapter{Indigenous Resistance: From ``Red Power'' to Standing Rock}
 
-\chapter{The Movement for Black Lives}
+% \chapter{The Movement for Black Lives}
 
 
 
